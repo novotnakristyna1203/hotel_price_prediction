@@ -146,7 +146,7 @@ for checkin_date, comp_group in comp_df.groupby("Checkin"):
                 "Similarity": round(best_score, 3)
             })
         else:
-            print(f"   ⚠️ No strong match for {comp_row['Room Type']} (best={round(best_score,3)})")
+            print(f"   No strong match for {comp_row['Room Type']} (best={round(best_score,3)})")
 
 
 
@@ -162,5 +162,6 @@ with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
     filtered_df.to_excel(writer, sheet_name="Filtered Results", index=False)
     removed_df.to_excel(writer, sheet_name="Removed Karlova", index=False)
 
-print(f"✅ Saved results to {output_path}")
+print(f"Saved results to {output_path}")
 print(f"Filtered rows: {len(filtered_df)}, Removed rows: {len(removed_df)}")
+
